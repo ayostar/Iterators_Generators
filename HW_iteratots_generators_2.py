@@ -3,8 +3,10 @@ def flat_generator(incoming_list):
         item for element in incoming_list for item in flatten_list(element)
     ] if type(incoming_list) is list else [incoming_list]
     flattenned_list = flatten_list(incoming_list)
-
-    return [element for element in flattenned_list]
+    x = 0
+    while x < len(flattenned_list):
+        yield flattenned_list[x]
+        x += 1
 
 nested_list = [
     ['a', 'b', 'c'],
@@ -16,4 +18,3 @@ nested_list = [
 
 for item in flat_generator(nested_list):
     print(item)
-
